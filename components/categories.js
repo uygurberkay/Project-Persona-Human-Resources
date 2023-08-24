@@ -2,7 +2,7 @@ import { View, Text, ScrollView, TouchableOpacity, Image } from 'react-native'
 import React, { useState } from 'react'
 import {categories} from '../constants'
 import { useEffect } from 'react';
-import { getCategories } from '../api';
+import { getCategories, getDepartment} from '../api';
 import 'react-native-url-polyfill/auto';
 import { urlFor } from '../sanity';
 
@@ -12,7 +12,7 @@ const Categories = () => {
     
 
     useEffect(() => {
-        getCategories().then(data=>{
+        getDepartment().then(data=>{
             setCategories(data);
             })
     }, [])

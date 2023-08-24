@@ -62,7 +62,7 @@ const navigation = useNavigation()
             >
                 {
                     
-                    [featured, featured, featured]
+                    [featured]
                     .map((item,index) => { 
                         return (
                             <FeaturedRow 

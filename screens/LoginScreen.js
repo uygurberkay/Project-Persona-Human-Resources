@@ -49,7 +49,7 @@ const LoginScreen = () => {
             className="flex flex-1 justify-center items-center space-y-2"
         >
             <View
-                className="flex-col items-center gap-3 pb-6"
+                className="flex-col items-center gap-3 pb-14"
             >
                 <Image source={require('../assets/Logo.png')}/>
                 <Text
@@ -69,14 +69,14 @@ const LoginScreen = () => {
                 <TextInput
                     onChange={text => setPassword(text)}
                     value={this.password}
-                    placeholder='Password'
+                    placeholder='Şifre'
                     secureTextEntry={true}
                     className="px-4 py-3 border rounded-full  bg-white"
                 />
                 
             </View>
             <View
-                className="flex space-y-2 w-80 "
+                className="flex space-y-2 w-80 gap-y-4 "
             >
             <TouchableOpacity
                 className="flex items-center border rounded-full "

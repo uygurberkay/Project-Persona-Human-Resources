@@ -1,6 +1,14 @@
 import createClient from './sanity';
-let sanityQuery = (query, params)=> createClient.fetch(query, params);
-
+// let sanityQuery = (query, params)=> createClient.fetch(query, params);
+let sanityQuery = async (query, params) => {
+    try {
+      const response = await createClient.fetch(query, params);
+      return response;
+    } catch (error) {
+      console.error('Sanity query error:', error);
+      throw error;
+    }
+  };
 
 export const getDepartment = ()=>{
     return sanityQuery(`
@@ -11,20 +19,44 @@ export const getDepartment = ()=>{
         }
     `);
 }
+// export const getDepartment = async () => {
+//     try {
+//         const departments = await sanityQuery(`
+//             *[_type == "department"] {
+//             _id,
+//             title,
+//             departmentImage,
+//             }
+//         `);
+//         departments.forEach(department => {
+//             console.log('Department ID:', department._id);
+//             console.log('Title:', department.title);
+//             console.log('Department Image:', department.departmentImage);
+//         });
+//         return departments;
+//         } catch (error) {
+//         console.error('Error fetching departments:', error);
+//         throw error;
+//         }
+//   };
+
+export const getDirectors = ()=>{
+    return sanityQuery(`
+        *[_type == "department"] {
+            ...,
+        },
+        director[] -> {
+            ...,
+        },
+    `);
+}
 
 export const getEmployeeList = ()=>{
     return sanityQuery(`
         *[_type == "department"] {
-            _id,
-            title,
-            departmentImage,
+            ...,
             employees[] -> {
-                _id,
-                name,
-                jobTitle,
-                phone,
-                email,
-                cv,
+                ...,
             },
         }
     `);
@@ -32,15 +64,10 @@ export const getEmployeeList = ()=>{
 
 export const getEmployeeById = id=>{
     return sanityQuery(`
-        *[_type == "department"] {
+        *[_type == "department" && _id == $id]  {
             ...,
             employees[] -> {
-                _id,
-                name,
-                jobTitle,
-                phone,
-                email,
-                cv,
+                ...,
             },
         }[0]
     `, {id})
@@ -49,19 +76,11 @@ export const getEmployeeById = id=>{
 export const getActiveProject = ()=>{
     return sanityQuery(`
         *[_type == "department"] {
-            _id,
-            title,
-            departmentImage,
+            ...,
             activeProjects[] -> {
-                _id,
-                title,
-                dueDate,
-                startDate,
+                ...,
                 teamMembers[] -> {
-                    _id,
-                    name,
-                    jobTitle,
-                    email,
+                    ...,
                 }
             }
         }
@@ -70,65 +89,50 @@ export const getActiveProject = ()=>{
 
 export const getActiveProjectById = id=>{
     return sanityQuery(`
-        *[_type == "department"] {
+        *[_type == "department" && _id == $id] {
             ...,
             activeProjects[] -> {
-                _id,
-                title,
-                dueDate,
-                startDate,
+                ...,
                 teamMembers[] -> {
-                    _id,
-                    name,
-                    jobTitle,
-                    email,
+                    ...,
                 }
             }
         }[0]
     `, {id})
 }
 
-// export const getFeaturedRestaurants = ()=>{
-//     return sanityQuery(`
-//         *[_type == "department"] {
-//             _id,
-//             title,
-//             departmentImage,
-//             employees[] -> {
-//                 _id,
-//                 name,
-//                 jobTitle,
-//                 phone,
-//                 email,
-//                 cv,
-//             },
-//         }
-//     `);
-// }
+export const getCategories = ()=>{
+    return sanityQuery(`
+        *[_type == 'category']
+    `);
+}
 
-// export const getCategories = ()=>{
-//     return sanityQuery(`
-//     *[_type == "department"] {
-//         _id,
-//         title,
-//         departmentImage,
-//     }
+export const getFeaturedRestaurantById = id=>{
+    return sanityQuery(`
+        *[_type == 'featured' && _id == $id] {
+            ...,
+            restaurants[]->{
+                ...,
+                dishes[]->,
+                type->{
+                    name
+                }
+            }
+        }[0]
+    `, {id})
+}
 
-//         *[_type == 'category']
-//     `);
-// }
-
-// export const getFeaturedRestaurantById = id=>{
-//     return sanityQuery(`
-//         *[_type == 'featured' && _id == $id] {
-//             ...,
-//             restaurants[]->{
-//                 ...,
-//                 dishes[]->,
-//                 type->{
-//                     name
-//                 }
-//             }
-//         }[0]
-//     `, {id})
-// }
+export const getFeaturedRestaurants = ()=>{
+    return sanityQuery(`
+        *[_type == 'featured'] {
+            ...,
+            restaurants[]->{
+            ...,
+            type->{
+                name
+            },
+            dishes[]->
+            }
+        }
+    `);
+}
