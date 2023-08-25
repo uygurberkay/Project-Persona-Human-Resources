@@ -1,26 +1,41 @@
 import { View, Text, TouchableOpacity, ScrollView } from 'react-native'
 import React from 'react'
 import { themeColors } from '../theme'
-import RestaurandCard from './restaurantCard'
+import RestaurantCard from './restaurantCard'
+import ProjectCard from './projectCard'
+import { useNavigation } from '@react-navigation/native'
 
-const FeaturedRow = ({title, restaurants, description}) => {
+const FeaturedRow = ({item}) => {
+    const navigation = useNavigation()
     return (
         <View>
             <View className="flex-row justify-between items-center px-4">
                 <View>
                     <Text className="font-bold text-lg">
-                        {title}
+                        {item.title}
+                    </Text>
+                    <Text className="font-bold text-gray-500 text-sm">
+                        {item.startDate} - {item.dueDate}
                     </Text>
                     <Text className="text-gray-500 text-xs">
-                        {description}
+                        {item.status}
+                        {/* Will be done later, it should get data from _id on every department */}
+                        {/* {   
+                            item.activeProjects.map((project) => {
+                                console.log(project.status)
+                            })
+                        } */}
                     </Text>
                 </View>
-                <TouchableOpacity>
+                {/* Will be change later, it should get us single Project Page */}
+                <TouchableOpacity
+                    onPress={()=> navigation.navigate(`Home`)}
+                >
                     <Text 
-                        style={{color: themeColors.text}}
+                        style={{color: 'black'}}
                         className="font-semibold"
                     >
-                        See All
+                        İncele
                     </Text>
                 </TouchableOpacity>
             </View>
@@ -32,16 +47,20 @@ const FeaturedRow = ({title, restaurants, description}) => {
                 }}
                 className="overflow-visible py-5"
             >
-            {
-                restaurants.map((restaurants,index)=> {
+                <ProjectCard 
+                        item={item}
+                    />
+            {/* {
+                
+                item.map((projectData,index)=> {
                     return(
-                        <RestaurandCard 
-                            item={restaurants}
+                        <ProjectCard 
+                            item={projectData}
                             key={index}
                         />
                     )
                 })
-            }
+            } */}
             </ScrollView>
         </View>
     )

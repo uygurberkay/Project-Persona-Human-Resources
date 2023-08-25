@@ -10,15 +10,12 @@ const Categories = () => {
     const [activeCategory, setActiveCategory] = useState(null);
     let [categories, setCategories] = useState([])
     
-
     useEffect(() => {
         getDepartment().then(data=>{
             setCategories(data);
             })
     }, [])
-    const imageUrl = (source) => {
-        return builder.image(source)
-    }
+
     return (
         <View className="mt-4">
             <ScrollView
@@ -40,15 +37,16 @@ const Categories = () => {
                             onPress={()=> setActiveCategory(category._id)} 
                             className={"p-1 rounded-full shadow"+ btnClass}>
                             {
-                                category.image && (
-                            <Image style={{width: 45, height: 45}} source={{
-                                uri: urlFor(category.image).width(200).url(),
+                                category.departmentImage && (
+                            <Image 
+                                style={{width: 45, height: 45}} 
+                                source={{ uri: urlFor(category.departmentImage).url(),
                             }} 
                             />
                                 )
                             }
                         </TouchableOpacity>
-                        <Text className={"text-sm "+textClass}>{category.name}</Text>
+                        <Text className={"text-sm "+textClass}>{category.title}</Text>
                         </View> 
                     )
                     })

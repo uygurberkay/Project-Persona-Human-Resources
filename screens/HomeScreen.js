@@ -7,6 +7,7 @@ import {themeColors} from '../theme'
 import { featured } from '../constants';
 import FeaturedRow from '../components/featuredRow';
 import Categories from '../components/categories';
+import Projects from '../components/projects'
 import { useEffect } from 'react';
 import {getFeaturedRestaurants } from '../api';
 import { useState } from 'react';
@@ -32,7 +33,7 @@ const navigation = useNavigation()
                     <TextInput placeholder='İsim Soyisim' className="ml-2 flex-1" keyboardType='default' />
                 </View>
                     <TouchableOpacity 
-                        className=" items-center p-3 rounded-full border border-orange-300"
+                        className=" items-center p-3 rounded-full border border-gray-300"
                         onPress={()=> navigation.navigate('SearchPage')}
                         style={{backgroundColor: themeColors.bgColor(1)}}
                     >
@@ -41,9 +42,9 @@ const navigation = useNavigation()
                 <TouchableOpacity
                     onPress={()=> navigation.navigate('Login')}
                 >
-                <View style={{backgroundColor: themeColors.bgColor(1)}} className="p-3 rounded-full">
-                    <Icon.LogIn height={20} width={20} strokeWidth="2.5" stroke="white" />
-                </View>
+                    <View style={{backgroundColor: themeColors.bgColor(1)}} className="p-3 rounded-full">
+                        <Icon.LogIn height={20} width={20} strokeWidth="2.5" stroke="white" />
+                    </View>
                 </TouchableOpacity>
             </View>
             {/* Her menü seçeneğinde useEffect ile o sayfaya render ayarla */}
@@ -54,13 +55,13 @@ const navigation = useNavigation()
                     paddingBottom: 20
                 }}
             >
-            {/* categories */}
-            <Categories />
-            {/* features */}
-            <View 
-                className="mt-5 mb-10"
-            >
-                {
+                {/* companies */}
+                <Categories />
+
+                {/* Projects */}
+                <Projects />
+
+                {/* {
                     
                     [featured]
                     .map((item,index) => { 
@@ -73,8 +74,8 @@ const navigation = useNavigation()
                             />
                         )
                     })
-                }
-            </View>
+                } */}
+
             </ScrollView>
         </SafeAreaView>
     )

@@ -12,8 +12,10 @@ const builder = imageBuilder(client);
 
 export const urlFor = source=> builder.image(source);
 
+const groqQuery = '*[_type == "department"] {_id, title,departmentImage}';
+
 export const getDepartment = async () => {
-    const items = await client.fetch('*[_type == "department"] {_id, title,departmentImage}').then((data) => {
+    const items = await client.fetch(groqQuery).then((data) => {
         return data
     }).catch((err) => {
         throw console.error(err);

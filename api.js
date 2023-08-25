@@ -15,7 +15,9 @@ export const getDepartment = ()=>{
         *[_type == "department"] {
             _id,
             title,
-            departmentImage,
+            departmentImage {
+                ...,
+            }
         }
     `);
 }
@@ -75,13 +77,10 @@ export const getEmployeeById = id=>{
 
 export const getActiveProject = ()=>{
     return sanityQuery(`
-        *[_type == "department"] {
+        *[_type == "project" ] {
             ...,
-            activeProjects[] -> {
-                ...,
-                teamMembers[] -> {
-                    ...,
-                }
+            teamMembers[] -> {
+            ...,
             }
         }
     `);
