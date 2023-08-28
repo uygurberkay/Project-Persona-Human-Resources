@@ -77,12 +77,15 @@ export const getEmployeeById = id=>{
 
 export const getActiveProject = ()=>{
     return sanityQuery(`
-        *[_type == "project" ] {
+    *[_type == "project" ] {
+        ...,
+        teamMembers[] -> {
             ...,
-            teamMembers[] -> {
-            ...,
-            }
-        }
+        },
+        projectLead -> {
+            ...,  
+        },
+    }
     `);
 }
 

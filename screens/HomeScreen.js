@@ -12,7 +12,7 @@ import { useEffect } from 'react';
 import {getFeaturedRestaurants } from '../api';
 import { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
-
+import Popularjobs from '../components/projectPage/activeProject'
 
 export default function HomeScreen() {
 const [featuredRestaurants, setFeaturedRestaurants] = useState([])
@@ -59,8 +59,9 @@ const navigation = useNavigation()
                 <Categories />
 
                 {/* Projects */}
-                <Projects />
-
+                {/* <Projects /> */}
+                
+                <Popularjobs />
                 {/* {
                     
                     [featured]
