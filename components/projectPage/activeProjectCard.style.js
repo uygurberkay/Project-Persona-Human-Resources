@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-import { COLORS, FONT, SHADOWS, SIZES } from "./theme";
+import { COLORS, FONT, SHADOWS, SIZES } from "../../constants/theme";
 
 const styles = StyleSheet.create({
   container: (selectedJob, item) => ({

@@ -13,6 +13,7 @@ import {getFeaturedRestaurants } from '../api';
 import { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import Popularjobs from '../components/projectPage/activeProject'
+import Employee from '../components/employeePage/employee'
 
 export default function HomeScreen() {
 const [featuredRestaurants, setFeaturedRestaurants] = useState([])
@@ -76,6 +77,8 @@ const navigation = useNavigation()
                         )
                     })
                 } */}
+
+                <Employee/>
 
             </ScrollView>
         </SafeAreaView>

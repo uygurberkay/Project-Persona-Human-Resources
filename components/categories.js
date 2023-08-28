@@ -17,7 +17,7 @@ const Categories = () => {
     }, [])
 
     return (
-        <View className="mt-4">
+        <View className="px-1 mt-4">
             <ScrollView
                 horizontal
                 showsHorizontalScrollIndicator={false}

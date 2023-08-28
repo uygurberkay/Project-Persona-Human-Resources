@@ -5,7 +5,7 @@ import PopularJobCard from './activeProjectCard'
 // import useFetch from '../../../hook/useFetch.js'
 import { getActiveProject } from '../../api'
 
-const Popularjobs = ({jobTitle}) => {
+const Popularjobs = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [selectedJob, setSelectedJob] = useState();
     let [projects, setProjects] = useState([])
