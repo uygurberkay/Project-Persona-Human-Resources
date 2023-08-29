@@ -1,8 +1,12 @@
 import { View, Text, TouchableOpacity, Image } from 'react-native'
 import {themeColors} from '../../theme'
 import { SHADOWS } from "../../constants/theme";
+import Cake  from '../../assets/icons/cake.png';
+import Resume from '../../assets/icons/resume.png'
+import { urlFor } from '../../sanity';
 
-const EmployeeCard = ({ data ,job , handleNavigate }) => {
+const EmployeeCard = ({ data , handleNavigate }) => {
+    console.log(data)
 return (
     <TouchableOpacity
     className="flex-1 justify-between items-center flex-row p-2 rounded-xl bg-white"
@@ -12,19 +16,30 @@ return (
     <TouchableOpacity 
         className="w-14 h-14 bg-white justify-center items-center "
     >
-        {/* <Image 
-        source={ {
-            uri : checkImageURL(job.employer_logo)
-            ? job.employer_logo
-            : "https://t4.ftcdn.net/jpg/05/05/61/73/360_F_505617309_NN1CW7diNmGXJfMicpY9eXHKV4sqzO5H.jpg",
-        }}
-        resizeMode='contain'
-        style={styles.logoImage}
-        /> */}
+        {/* {
+            data?.map(item=>{
+            return(
+                <View key={item._id} className="flex justify-center items-center mr-6">
+                    {
+                        item.image && (
+                    <Image 
+                        style={{width: 45, height: 45}} 
+                        source={{ uri: urlFor(item.image).url(),
+                    }} 
+                    />
+                        )
+                    }
+                <Text className={"text-sm "+textClass}>{category.title}</Text>
+                </View> 
+            )
+            })
+        } */}
+        
         <Image 
         className="rounded-xl w-4/5 h-4/5"
         source={
-            data.departments[0].employees[0].PersonImage
+            data.image
+            // require('../../assets/Logo.png')
         }
         resizeMode='contain'
         // style={styles.logoImage}
@@ -37,18 +52,32 @@ return (
     <View 
         className="flex-1 pl-2 my-2"
     >
-        <Text 
-            className="text-base font-semibold"
-            style={{color: themeColors.bgColor(1)}}
-            numberOfLines={1}
-        >
-        {data.departments[0].employees[0].jobTitle}
-        </Text>
+        <View className="flex-row justify-between">
+            <Text 
+                className="text-base font-semibold"
+                style={{color: themeColors.bgColor(1)}}
+                numberOfLines={1}
+            >
+            {data.jobTitle.length > 20 ? `${data.jobTitle.substring(0, 20)}...` : data.jobTitle}
+            </Text>
+            <View
+                className="flex-row  gap-x-2 "
+            >
+                <Image 
+                    className="w-5 h-5"
+                    source={Cake} />
+                <Text>
+                    {data.birthday}
+                </Text>
+            </View>
+        </View>
 
         <Text 
             className=" text-sm font-normal mt-1 uppercase text-gray-500"
         >
-        {data.departments[0].employees[0].personalProjects}
+        {data.name}
+        {data.personalProjects}
+        {/* {data.departments[0].employees[0].personalProjects} */}
         </Text>
     </View>
     

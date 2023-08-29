@@ -14,7 +14,7 @@ import { SafeAreaView } from 'react-native-safe-area-context'
     setIsLoading(true)
     getEmployeeList().then(data=>{
         setEmployees(data);
-        // console.log(data)
+        console.log(data)
         })
     setIsLoading(false)
   }, [])
@@ -46,7 +46,7 @@ import { SafeAreaView } from 'react-native-safe-area-context'
             {
               employees?.map((job) => (
                 <EmployeeCard
-                  data={DummyData}
+                  data={job}
                   // data={employees}
                   // job={job}
                   keyExtraction={(job) => job?._id}

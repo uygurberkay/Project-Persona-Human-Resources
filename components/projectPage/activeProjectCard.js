@@ -32,7 +32,6 @@ import { checkImageURL } from '../../utils/index'
             <Image 
                 source={
                     require("../../assets/Logo.png")
-                    // dummyData.departments[1].DepartmentImage
                 }
                 resizeMode='contain'
                 className="w-2/3 h-2/3"
@@ -40,10 +39,9 @@ import { checkImageURL } from '../../utils/index'
             </TouchableOpacity>
             <Text
             className="text-base font-medium text-gray-200 ml-10 mt-2"
-            // style={styles.companyName}
             numberOfLines={1}
             >
-            {dummyData.departments[1].title}
+            {item.deptName}
             </Text>
         </View>
 

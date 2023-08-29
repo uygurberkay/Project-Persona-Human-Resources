@@ -14,7 +14,7 @@ const Popularjobs = () => {
         setIsLoading(true)
         getActiveProject().then(data=>{
             setProjects(data);
-            console.log(data)
+            // console.log(data)
             })
         setIsLoading(false)
     }, [])
