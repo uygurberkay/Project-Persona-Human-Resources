@@ -1,51 +1,63 @@
 import { useState, useEffect } from 'react'
-import { View, Text, TouchableOpacity, FlatList, ActivityIndicator } from 'react-native'
-import styles from './employee.style'
-import DummyData from '../../constants/dummydata'
+import { View, Text, TouchableOpacity, FlatList, VirtualizedList } from 'react-native'
 import EmployeeCard from './employeeCard'
+import {getEmployeeList} from '../../api'
+import {themeColors} from '../../theme'
+import DummyData from '../../constants/dummydata'
+import { ScrollView } from 'react-native-web'
+import { SafeAreaView } from 'react-native-safe-area-context'
   const EmployeeList = () => {
-    
+    const [isLoading, setIsLoading] = useState(false);
     const [selectedJob, setSelectedJob] = useState();
-  
+    const [employees, setEmployees] = useState();
   useEffect(() => {
     setIsLoading(true)
-    getActiveProject().then(data=>{
-        setProjects(data);
-        console.log(data)
+    getEmployeeList().then(data=>{
+        setEmployees(data);
+        // console.log(data)
         })
     setIsLoading(false)
   }, [])
 
     return (
-      <View style={styles.container}>
-  
-        <View style={styles.header}>
-          <Text style={styles.headerTitle}>
+      <SafeAreaView>
+        <View className="-mt-10">
+          <View 
+            className="flex px-4 py-3 flex-row justify-between items-center"
+          >
+            <Text 
+            className="text-lg font-semibold"
+            style={{color: themeColors.bgColor(1)}}
+            >
             Çalışan Listesi
-          </Text>
-  
-          {/* <TouchableOpacity>
-            <Text style={styles.headerBtn}>
-              Show All
             </Text>
-          </TouchableOpacity> */}
-  
+
+            <TouchableOpacity>
+            <Text className="text-sm font-bold text-gray-400">
+                Hepsi
+            </Text>
+            </TouchableOpacity>
+          </View>
+          
+          <View 
+            className="px-4"
+            style={{gap: 5}}
+          >
+            {
+              employees?.map((job) => (
+                <EmployeeCard
+                  data={DummyData}
+                  // data={employees}
+                  // job={job}
+                  keyExtraction={(job) => job?._id}
+                  // handleNavigate={() => router.push(`/job-details/${job.job_id}`)}
+                />
+              ))
+            }
+          </View>
         </View>
-  
-        <View style={styles.cardsContainer}>
-          {
-            data?.map((job) => (
-              <EmployeeCard
-                data={DummyData}
-                job={job}
-                key={`nearby-job-${job.job_id}`}
-                handleNavigate={() => router.push(`/job-details/${job.job_id}`)}
-              />
-            ))
-          }
-        </View>
-        
-      </View>
+      </SafeAreaView>
+      
     )
   }
   

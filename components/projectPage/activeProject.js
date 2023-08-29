@@ -21,11 +21,11 @@ const Popularjobs = () => {
 
 
     const handleCardPress = (item) => {
-        setSelectedJob(projects._id);
+        // setSelectedJob(projects._id);
     };
 
     return (
-        <View className="mt-6">
+        <View className="mt-3">
     
             <View className="px-4 flex-row justify-between items-center">
                 <Text 
@@ -41,7 +41,7 @@ const Popularjobs = () => {
                 </TouchableOpacity>
             </View>
         <View 
-            className="px-2 mt-3"
+            className="px-2 mt-2"
         >
             <FlatList 
                 data={projects}

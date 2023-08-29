@@ -13,7 +13,8 @@ import {getFeaturedRestaurants } from '../api';
 import { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import Popularjobs from '../components/projectPage/activeProject'
-import Employee from '../components/employeePage/employee'
+import EmployeeList from '../components/employeePage/employee'
+import Footer from '../components/footer'
 
 export default function HomeScreen() {
 const [featuredRestaurants, setFeaturedRestaurants] = useState([])
@@ -50,14 +51,9 @@ const navigation = useNavigation()
             </View>
             {/* Her menü seçeneğinde useEffect ile o sayfaya render ayarla */}
             {/* main */}
-            <ScrollView  
-                showsVerticalScrollIndicator={false}
-                contentContainerStyle={{
-                    paddingBottom: 20
-                }}
-            >
+            
                 {/* companies */}
-                <Categories />
+                <Categories className="sticky" />
 
                 {/* Projects */}
                 {/* <Projects /> */}
@@ -77,10 +73,18 @@ const navigation = useNavigation()
                         )
                     })
                 } */}
-
-                <Employee/>
+                
+                <ScrollView 
+                className="h-1/2"
+                showsVerticalScrollIndicator={false}
+                contentContainerStyle={{
+                    paddingBottom: 20
+                }}
+            >
+                <EmployeeList />
 
             </ScrollView>
+            <Footer />
         </SafeAreaView>
     )
 }

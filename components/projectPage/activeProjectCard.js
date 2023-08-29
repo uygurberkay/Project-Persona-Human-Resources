@@ -10,7 +10,7 @@ import dummyData from '../../constants/dummydata'
     const PopularJobCard = ({ item , selectedJob }) => {
         return (
         <TouchableOpacity
-            className="w-56 justify-between rounded-xl p-6"
+            className="w-56 justify-between rounded-xl p-4"
             style={styles.container(selectedJob,item)}
             onPress={() => handleCardPress(item)}
         >

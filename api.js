@@ -55,11 +55,8 @@ export const getDirectors = ()=>{
 
 export const getEmployeeList = ()=>{
     return sanityQuery(`
-        *[_type == "department"] {
+        *[_type == "employees" ]{
             ...,
-            employees[] -> {
-                ...,
-            },
         }
     `);
 }
