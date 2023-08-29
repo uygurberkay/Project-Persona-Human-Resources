@@ -6,7 +6,10 @@ import {themeColors} from '../../theme'
 import DummyData from '../../constants/dummydata'
 import { ScrollView } from 'react-native-web'
 import { SafeAreaView } from 'react-native-safe-area-context'
+import { useNavigation } from '@react-navigation/native'
+
   const EmployeeList = () => {
+    const navigation = useNavigation()
     const [isLoading, setIsLoading] = useState(false);
     const [selectedJob, setSelectedJob] = useState();
     const [employees, setEmployees] = useState();
@@ -14,7 +17,7 @@ import { SafeAreaView } from 'react-native-safe-area-context'
     setIsLoading(true)
     getEmployeeList().then(data=>{
         setEmployees(data);
-        console.log(data)
+        // console.log(data)
         })
     setIsLoading(false)
   }, [])
@@ -32,7 +35,9 @@ import { SafeAreaView } from 'react-native-safe-area-context'
             Çalışan Listesi
             </Text>
 
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => { navigation.navigate('Employees')}}
+            >
             <Text className="text-sm font-bold text-gray-400">
                 Hepsi
             </Text>

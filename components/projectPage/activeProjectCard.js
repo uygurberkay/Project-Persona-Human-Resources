@@ -8,7 +8,7 @@ import styles from './activeProjectCard.style'
 import dummyData from '../../constants/dummydata'
 import { checkImageURL } from '../../utils/index'
     
-    const PopularJobCard = ({ item , selectedJob }) => {
+    const PopularJobCard = ({ item , selectedJob , handleCardPress}) => {
         return (
         <TouchableOpacity
             className="w-56 justify-between rounded-xl p-4"
@@ -38,20 +38,21 @@ import { checkImageURL } from '../../utils/index'
             />
             </TouchableOpacity>
             <Text
-            className="text-base font-medium text-gray-200 ml-10 mt-2"
+            className="text-base font-medium ml-10 mt-2"
             numberOfLines={1}
+            style={styles.jobName(selectedJob,item)}
             >
             {item.deptName}
             </Text>
         </View>
 
             <View className="flex-row justify-between">
-            <Text className="text-xs text-gray-200 ">Başlangıç:</Text>
-                <Text className="text-xs text-gray-200 ">{item.dueDate}</Text>
+            <Text className="text-sm" style={styles.jobName(selectedJob,item)}>Başlangıç:</Text>
+                <Text className="text-sm" style={styles.jobName(selectedJob,item)}>{item.dueDate}</Text>
             </View>
             <View className="flex-row justify-between">
-            <Text className="text-xs text-gray-200">Bitiş:</Text>
-                <Text className="text-xs text-gray-200 ">{item.startDate}</Text>
+            <Text className="text-sm" style={styles.jobName(selectedJob,item)}>Bitiş:</Text>
+                <Text className="text-sm" style={styles.jobName(selectedJob,item)}>{item.startDate}</Text>
             </View>
             <View className="pt-4" >
                 <Text
@@ -62,8 +63,8 @@ import { checkImageURL } from '../../utils/index'
                     {item.title}
                 </Text>
                     <View className="flex-row justify-between pt-2">
-                        <Text className="text-sm text-gray-200">Sorumlu:</Text>
-                        <Text className="text-xs text-gray-200 ">
+                        <Text className="text-sm " style={styles.jobName(selectedJob,item)}>Sorumlu:</Text>
+                        <Text className="text-sm" style={styles.jobName(selectedJob,item)}>
                         {
                             item.projectLead
                             

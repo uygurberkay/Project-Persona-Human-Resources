@@ -14,9 +14,7 @@ const CartIcon = () => {
         <View className="absolute bottom-2 w-full z-50">
             <TouchableOpacity  
             /* navigation.navigate('writeHereNavigation.jsName') */
-            onPress={() => { navigation.navigate('Cart')
-
-            }}
+            onPress={() => { navigation.navigate('Cart')}}
                 className="flex-row justify-between items-center mx-5 rounded-full p-4 py-3 shadow-lg"
                 style={{backgroundColor: themeColors.bgColor(1)}}
             >

@@ -4,8 +4,10 @@ import {themeColors} from '../../theme'
 import PopularJobCard from './activeProjectCard'
 // import useFetch from '../../../hook/useFetch.js'
 import { getActiveProject, getActiveProject2 } from '../../api'
+import { useNavigation } from '@react-navigation/native'
 
 const Popularjobs = () => {
+    const navigation = useNavigation()
     const [isLoading, setIsLoading] = useState(false);
     const [selectedJob, setSelectedJob] = useState();
     let [projects, setProjects] = useState([])
@@ -21,7 +23,7 @@ const Popularjobs = () => {
 
 
     const handleCardPress = (item) => {
-        // setSelectedJob(projects._id);
+        setSelectedJob(item._id);
     };
 
     return (
@@ -34,7 +36,9 @@ const Popularjobs = () => {
                     >
                     Aktif Projeler
                 </Text>
-                <TouchableOpacity>
+                <TouchableOpacity
+                    onPress={() => { navigation.navigate('Projects')}}
+                >
                     <Text className="text-sm font-bold text-gray-400">
                     Hepsi
                     </Text>
@@ -49,7 +53,7 @@ const Popularjobs = () => {
                     <PopularJobCard 
                         item={item}
                         selectedJob={selectedJob}
-                        // handleCardPress={handleCardPress}
+                        handleCardPress={handleCardPress}
                     />
             )}
             keyExtractor={(item) => item?.job_id} 
