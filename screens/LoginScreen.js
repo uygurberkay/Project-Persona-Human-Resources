@@ -81,7 +81,8 @@ const LoginScreen = () => {
             <TouchableOpacity
                 className="flex items-center border rounded-full "
                 style={{backgroundColor: themeColors.bgColor(1)}}
-                onPress={handleSignIn}
+                // onPress={handleSignIn}
+                onPress={() => navigation.navigate('Home')}
             >
                 <Text 
                     className="h-8 text-lg"
@@ -103,11 +104,11 @@ const LoginScreen = () => {
                 </Text>
             </TouchableOpacity>
             </View>
-            <TouchableOpacity
+            {/* <TouchableOpacity
                 onPress={() => navigation.navigate('Home')}
             >
                 <Icon.LogOut height={20} width={20} strokeWidth="2.5" stroke="red" />
-            </TouchableOpacity>
+            </TouchableOpacity> */}
         </SafeAreaView>
     )
 }

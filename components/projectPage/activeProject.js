@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, FlatList, ActivityIndicator } from 'react
 import {themeColors} from '../../theme'
 import PopularJobCard from './activeProjectCard'
 // import useFetch from '../../../hook/useFetch.js'
-import { getActiveProject } from '../../api'
+import { getActiveProject, getActiveProject2 } from '../../api'
 
 const Popularjobs = () => {
     const [isLoading, setIsLoading] = useState(false);

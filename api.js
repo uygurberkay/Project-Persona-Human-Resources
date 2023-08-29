@@ -2,13 +2,13 @@ import createClient from './sanity';
 // let sanityQuery = (query, params)=> createClient.fetch(query, params);
 let sanityQuery = async (query, params) => {
     try {
-      const response = await createClient.fetch(query, params);
-      return response;
+        const response = await createClient.fetch(query, params);
+        return response;
     } catch (error) {
-      console.error('Sanity query error:', error);
-      throw error;
+        console.error('Sanity query error:', error);
+        throw error;
     }
-  };
+}; 
 
 export const getDepartment = ()=>{
     return sanityQuery(`
@@ -80,6 +80,16 @@ export const getActiveProject = ()=>{
             ...,
         },
         projectLead -> {
+            ...,  
+        },
+    }
+    `);
+}
+export const getActiveProject2 = ()=>{
+    return sanityQuery(`
+    *[_type == "project" ] {
+        ...,
+        projectLead[] -> {
             ...,  
         },
     }

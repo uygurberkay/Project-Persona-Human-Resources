@@ -6,6 +6,7 @@ import {
 } from 'react-native'
 import styles from './activeProjectCard.style'
 import dummyData from '../../constants/dummydata'
+import { checkImageURL } from '../../utils/index'
     
     const PopularJobCard = ({ item , selectedJob }) => {
         return (
@@ -19,9 +20,19 @@ import dummyData from '../../constants/dummydata'
                 className="w-12 h-12 justify-center items-center rounded-xl"
                 style={styles.logoContainer(selectedJob,item)}
             >
+            {/* <Image 
+                source={ {
+                    uri : checkImageURL(item.deptImage)
+                    ? item.deptImage
+                    :  require("../../assets/Logo.png"),
+                }}
+                resizeMode='contain'
+                className="w-2/3 h-2/3"
+            /> */}
             <Image 
                 source={
-                dummyData.departments[1].DepartmentImage
+                    require("../../assets/Logo.png")
+                    // dummyData.departments[1].DepartmentImage
                 }
                 resizeMode='contain'
                 className="w-2/3 h-2/3"
