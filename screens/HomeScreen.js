@@ -32,8 +32,7 @@ const navigation = useNavigation()
             {/* Her menü seçeneğinde useEffect ile o sayfaya render ayarla */}
             {/* main */}
             
-                {/* companies */}
-                <Categories className="sticky" />
+                
 
                 {/* Search Bar */}
                 <View className="flex-row items-center space-x-2 px-4 ">
@@ -57,31 +56,34 @@ const navigation = useNavigation()
                 </TouchableOpacity> */}
             </View>
 
-                {/* Projects */}
-                {/* <Projects /> */}
+            {/* companies */}
+            <Categories className="sticky" />
+
+            {/* Projects */}
+            {/* <Projects /> */}
+            
+            <Popularjobs />
+            {/* {
                 
-                <Popularjobs />
-                {/* {
-                    
-                    [featured]
-                    .map((item,index) => { 
-                        return (
-                            <FeaturedRow 
-                                key={index}
-                                title={item.title}
-                                restaurants={item.restaurants}
-                                description={item.description}
-                            />
-                        )
-                    })
-                } */}
-                
-                <ScrollView 
-                className="h-1/2"
-                showsVerticalScrollIndicator={false}
-                contentContainerStyle={{
-                    paddingBottom: 20
-                }}
+                [featured]
+                .map((item,index) => { 
+                    return (
+                        <FeaturedRow 
+                            key={index}
+                            title={item.title}
+                            restaurants={item.restaurants}
+                            description={item.description}
+                        />
+                    )
+                })
+            } */}
+            
+            <ScrollView 
+            className="h-1/2"
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={{
+                paddingBottom: 20
+            }}
             >
                 <EmployeeList />
 

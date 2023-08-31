@@ -2,9 +2,12 @@ import { View, Text, TouchableOpacity, Image } from 'react-native'
 import {themeColors} from '../../theme'
 import { SHADOWS } from "../../constants/theme";
 import Cake  from '../../assets/icons/cake.png';
+import CakeGreen from '../../assets/icons/cake-green.png'
+import birthDayControl from '../../utils/dailyDayController';
 
 const EmployeeCard = ({ data , handleNavigate }) => {
-    console.log(data.image)
+    const birth = birthDayControl(data.birthday)
+    // console.log(data.image)
 return (
     <TouchableOpacity
     className="flex-1 justify-between items-center flex-row p-2 rounded-xl bg-white"
@@ -43,9 +46,19 @@ return (
             <View
                 className="flex-row  gap-x-2 "
             >
-                <Image 
+                { birth ? (
+                    <Image 
+                    source={ CakeGreen }
+                    resizeMode='contain'
                     className="w-5 h-5"
-                    source={Cake} />
+                    />
+                ) : 
+                    (<Image 
+                    source={ Cake }
+                    resizeMode='contain'
+                    className="w-5 h-5"
+                    />)
+                }
                 <Text>
                     {data.birthday}
                 </Text>

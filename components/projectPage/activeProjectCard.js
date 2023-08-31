@@ -7,8 +7,10 @@ import {
 import styles from './activeProjectCard.style'
 import dummyData from '../../constants/dummydata'
 import { checkImageURL } from '../../utils/index'
+import { useNavigation } from '@react-navigation/native'
     
     const PopularJobCard = ({ item , selectedJob , handleCardPress}) => {
+        const navigation = useNavigation()
         return (
         <TouchableOpacity
             className="w-56 justify-between rounded-xl p-4"

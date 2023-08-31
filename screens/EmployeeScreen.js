@@ -56,7 +56,7 @@ const navigation = useNavigation()
 
                 
                 <ScrollView 
-                className="h-1/2"
+                className="h-4/5"
                 showsVerticalScrollIndicator={false}
                 contentContainerStyle={{
                     paddingBottom: 20
