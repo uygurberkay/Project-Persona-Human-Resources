@@ -10,9 +10,9 @@ import { getEmployeeList } from '../api';
 import { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import Footer from '../components/footer'
-import EmployeeInfoCard from '../components/employeeInfoPage/EmployeeInfoCard'
+import ProjectInfoCard from '../components/projectInfoPage/ProjectInfoCard';
 
-export default function HomeScreen() {
+export default function ProjectInfoScreen() {
     const [featuredRestaurants, setFeaturedRestaurants] = useState([])
     const navigation = useNavigation()
     useEffect(()=> {
@@ -24,7 +24,7 @@ export default function HomeScreen() {
     return (
         <SafeAreaView>
             <StatusBar barStyle="dark-content"/>
-            <EmployeeInfoCard />
+            <ProjectInfoCard />
             <Footer />
         </SafeAreaView>
     )

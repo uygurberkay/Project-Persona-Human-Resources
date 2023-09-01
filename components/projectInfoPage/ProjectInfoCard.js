@@ -11,7 +11,7 @@ import * as Icon from "react-native-feather";
 import { useNavigation } from '@react-navigation/native';
 import { COLORS, SHADOWS } from "../../constants/theme";
 
-const tabs = ["Aktif Projeler", "Çalışan Bilgisi"];
+const tabs = ["Aktif Projeler", "Takım Bilgisi"];
 const isLoading = false
 
 const TabButton = ({name, activeTab, onHandleSearchType}) => {
@@ -47,7 +47,7 @@ const ProjectInfoCard = () => {
                     <ProjectInfo />
                 );
 
-            case "Çalışan Bilgisi":
+            case "Takım Bilgisi":
                 return (
                     <About 
                     // info={Data.departments[0].activeProjects[0] ?? "No data provided"} 
@@ -63,7 +63,7 @@ const ProjectInfoCard = () => {
     return (
         <View className="">
             <TouchableOpacity 
-                className="flex left-6 bg-blue-800 border rounded-full w-10 h-10 justify-center items-center"
+                className="flex left-6 bg-primary-bg border rounded-full w-10 h-10 justify-center items-center"
                 onPress={() => navigation.goBack()}
             >
                 <Icon.ArrowLeft strokeWidth={3} width={20} stroke={'white'}/>

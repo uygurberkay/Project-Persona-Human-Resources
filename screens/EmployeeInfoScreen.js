@@ -12,7 +12,7 @@ import { useNavigation } from '@react-navigation/native';
 import Footer from '../components/footer'
 import EmployeeInfoCard from '../components/employeeInfoPage/EmployeeInfoCard'
 
-export default function EmployeeInfoPage() {
+export default function EmployeeInfoScreen() {
     const [featuredRestaurants, setFeaturedRestaurants] = useState([])
     const navigation = useNavigation()
     useEffect(()=> {

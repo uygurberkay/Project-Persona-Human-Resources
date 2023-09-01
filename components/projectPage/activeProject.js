@@ -24,6 +24,7 @@ const Popularjobs = () => {
 
     const handleCardPress = (item) => {
         setSelectedJob(item._id);
+        navigation.navigate('ProjectInfo')
     };
 
     return (

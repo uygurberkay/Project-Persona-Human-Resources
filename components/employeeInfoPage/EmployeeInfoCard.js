@@ -80,7 +80,7 @@ const EmployeeInfoCard = () => {
                 <Icon.ArrowLeft strokeWidth={3} width={20} stroke={'white'}/>
             </TouchableOpacity>
             <View className="flex justify-center items-center gap-y-4">
-                <Text>Project Page</Text>
+                <Text>Employee Page</Text>
                 <View className="">
                     <Image 
                         className="h-32 w-32 bg-gray-400 rounded-xl" 
