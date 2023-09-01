@@ -16,7 +16,7 @@ import Popularjobs from '../components/projectPage/activeProject'
 import EmployeeList from '../components/employeePage/employee'
 import Footer from '../components/footer'
 
-export default function HomeScreen() {
+export default function ProjectScreen() {
 const [featuredRestaurants, setFeaturedRestaurants] = useState([])
 const navigation = useNavigation()
     useEffect(()=> {

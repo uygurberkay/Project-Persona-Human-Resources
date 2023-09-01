@@ -63,13 +63,13 @@ export const getEmployeeList = ()=>{
 
 export const getEmployeeById = id=>{
     return sanityQuery(`
-        *[_type == "department" && _id == $id]  {
+        *[_type == "department" && _id == ${id}]  {
             ...,
             employees[] -> {
                 ...,
             },
         }[0]
-    `, {id})
+    `)
 }
 
 export const getActiveProject = ()=>{

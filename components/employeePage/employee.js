@@ -26,25 +26,6 @@ import { useNavigation } from '@react-navigation/native'
       <SafeAreaView>
         <View className="-mt-10">
           <View 
-            className="flex px-4 py-3 flex-row justify-between items-center"
-          >
-            <Text 
-            className="text-lg font-semibold"
-            style={{color: themeColors.bgColor(1)}}
-            >
-            Çalışan Listesi
-            </Text>
-
-            <TouchableOpacity
-              onPress={() => { navigation.navigate('Employees')}}
-            >
-            <Text className="text-sm font-bold text-gray-400">
-                Hepsi
-            </Text>
-            </TouchableOpacity>
-          </View>
-          
-          <View 
             className="px-4"
             style={{gap: 5}}
           >
@@ -56,6 +37,7 @@ import { useNavigation } from '@react-navigation/native'
                   // job={job}
                   keyExtraction={(job) => job?._id}
                   // handleNavigate={() => router.push(`/job-details/${job.job_id}`)}
+                  handleNavigate={() => navigation.navigate('EmployeeInfo')}
                 />
               ))
             }

@@ -4,8 +4,11 @@ import { SHADOWS } from "../../constants/theme";
 import Cake  from '../../assets/icons/cake.png';
 import CakeGreen from '../../assets/icons/cake-green.png'
 import birthDayControl from '../../utils/dailyDayController';
+import { useNavigation } from '@react-navigation/native';
 
 const EmployeeCard = ({ data , handleNavigate }) => {
+    const navigation = useNavigation()
+    /* Return true any match birthday available */
     const birth = birthDayControl(data.birthday)
     // console.log(data.image)
 return (

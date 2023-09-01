@@ -3,7 +3,11 @@ module.exports = {
   content: ["./App.{js,jsx,ts,tsx}", "./screens/**/*.{js,jsx,ts,tsx}",  "./components/**/*.{js,jsx,ts,tsx}"],
 
   theme: {
-    extend: {},
+    extend: {
+      backgroundColor: {
+        'primary-bg': '#312651',
+      }
+    },
   },
   fontFamily: {
     Sans: 'DM Sans',

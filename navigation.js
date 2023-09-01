@@ -13,6 +13,7 @@ import CommentScreen from './screens/CommentScreen';
 import LoginScreen from './screens/LoginScreen';
 import EmployeeScreen from './screens/EmployeeScreen';
 import ProjectScreen from './screens/ProjectScreen';
+import EmployeeInfoScreen from './screens/EmployeeInfoScreen';
 
 export default function Navigation() {
     return (
@@ -23,6 +24,7 @@ export default function Navigation() {
                 <Stack.Screen name="Login" component={LoginScreen} />
                 <Stack.Screen name="Home" component={HomeScreen} />
                 <Stack.Screen name="Employees" component={EmployeeScreen} />
+                <Stack.Screen name="EmployeeInfo" component={EmployeeInfoScreen} />
                 <Stack.Screen name="Projects" component={ProjectScreen} />
                 <Stack.Screen name="Restaurant" component={RestaurantScreen} />
                 <Stack.Screen name="Cart" options={{presentation : 'modal'}} component={CartScreen} />

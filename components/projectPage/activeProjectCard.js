@@ -3,12 +3,11 @@ import {
     Text, 
     TouchableOpacity,  
     Image,
+    StyleSheet,
 } from 'react-native'
-import styles from './activeProjectCard.style'
-import dummyData from '../../constants/dummydata'
-import { checkImageURL } from '../../utils/index'
 import { useNavigation } from '@react-navigation/native'
-    
+import { COLORS, SHADOWS, SIZES } from "../../constants/theme";
+
     const PopularJobCard = ({ item , selectedJob , handleCardPress}) => {
         const navigation = useNavigation()
         return (
@@ -77,4 +76,23 @@ import { useNavigation } from '@react-navigation/native'
         </TouchableOpacity>
         )
     }
+
+    const styles = StyleSheet.create({
+        container: (selectedJob, item) => ({
+            backgroundColor: selectedJob === item._id ? COLORS.primary : "#FFF",
+            ...SHADOWS.medium,
+            shadowColor: COLORS.white,
+        }),
+        logoContainer: (selectedJob, item) => ({
+            backgroundColor: selectedJob === item._id ? "#FFF" : COLORS.white,
+        }),
+        jobName: (selectedJob, item) => ({
+            color: selectedJob === item._id ? COLORS.white : COLORS.primary,
+        }),
+        publisher: (selectedJob) => ({
+            fontSize: SIZES.medium - 2,
+            color: selectedJob === item._id ? COLORS.white : COLORS.primary,
+        }),
+        });
+
     export default PopularJobCard

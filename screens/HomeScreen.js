@@ -31,9 +31,7 @@ const navigation = useNavigation()
             
             {/* Her menü seçeneğinde useEffect ile o sayfaya render ayarla */}
             {/* main */}
-            
                 
-
                 {/* Search Bar */}
                 <View className="flex-row items-center space-x-2 px-4 ">
                 <View className="flex-row flex-1 items-center p-2 rounded-full border border-gray-300">
@@ -85,6 +83,24 @@ const navigation = useNavigation()
                 paddingBottom: 20
             }}
             >
+                <View 
+                    className="flex px-4 py-3 flex-row justify-between items-center"
+                >
+                    <Text 
+                    className="text-lg font-semibold"
+                    style={{color: themeColors.bgColor(1)}}
+                    >
+                    Çalışan Listesi
+                    </Text>
+
+                    <TouchableOpacity
+                    onPress={() => { navigation.navigate('Employees')}}
+                    >
+                    <Text className="text-sm font-bold text-gray-400">
+                        Hepsi
+                    </Text>
+                    </TouchableOpacity>
+                </View>
                 <EmployeeList />
 
             </ScrollView>

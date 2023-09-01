@@ -16,7 +16,7 @@ import Popularjobs from '../components/projectPage/activeProject'
 import EmployeeList from '../components/employeePage/employee'
 import Footer from '../components/footer'
 
-export default function HomeScreen() {
+export default function EmployeeScreen() {
 const [featuredRestaurants, setFeaturedRestaurants] = useState([])
 const navigation = useNavigation()
     useEffect(()=> {
@@ -62,6 +62,16 @@ const navigation = useNavigation()
                     paddingBottom: 20
                 }}
             >
+                <View 
+                    className="flex px-4 py-3 flex-row justify-between items-center"
+                >
+                    <Text 
+                    className="text-lg font-semibold"
+                    style={{color: themeColors.bgColor(1)}}
+                    >
+                    Çalışan Listesi
+                    </Text>
+                </View>
                 <EmployeeList />
 
             </ScrollView>
