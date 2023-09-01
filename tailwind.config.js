@@ -6,6 +6,9 @@ module.exports = {
     extend: {
       backgroundColor: {
         'primary-bg': '#312651',
+      },
+      width: {
+        'box' : 4/7
       }
     },
   },

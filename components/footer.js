@@ -4,7 +4,7 @@ import { SafeAreaView } from 'react-native-web'
 
 const Footer = () => {
     return (
-        <View className="flex justify-center items-center rounded-full">
+        <View className="flex justify-center items-center">
             <Text>Tüm hakları Ocakcı Holding'e aittir.</Text>
         </View>
     )

@@ -23,9 +23,11 @@ export default function ProjectInfoScreen() {
 
     return (
         <SafeAreaView>
-            <StatusBar barStyle="dark-content"/>
-            <ProjectInfoCard />
-            <Footer />
+            <>
+                <StatusBar barStyle="dark-content"/>
+                <ProjectInfoCard />
+                <Footer />
+            </>
         </SafeAreaView>
     )
 }

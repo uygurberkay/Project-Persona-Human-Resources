@@ -31,7 +31,7 @@ const TabButton = ({name, activeTab, onHandleSearchType}) => {
         );
     }
 
-const ProjectInfoCard = () => {
+const ProjectInfoCard = ({data}) => {
     const navigation = useNavigation()
     const [activeTab, setActiveTab] = useState(tabs[0]);
     const [refreshing, setRefreshing] = useState(false);
@@ -40,17 +40,15 @@ const ProjectInfoCard = () => {
         switch (activeTab) {
             case "Aktif Projeler":
                 return (
-                    // <Specifics
-                    //     title='Takım Bilgileri'
-                    //     points={Data.departments[0].activeProjects[0] ?? ["N/A"]}
-                    // />
-                    <ProjectInfo />
+                    <ProjectInfo 
+                        data={data}
+                    />
                 );
 
             case "Takım Bilgisi":
                 return (
                     <About 
-                    // info={Data.departments[0].activeProjects[0] ?? "No data provided"} 
+                        data={data} 
                     />
                 );
             default:
@@ -69,10 +67,9 @@ const ProjectInfoCard = () => {
                 <Icon.ArrowLeft strokeWidth={3} width={20} stroke={'white'}/>
             </TouchableOpacity>
             <View className="flex justify-center items-center gap-y-4">
-                <Text>Project Page</Text>
                 <View className="">
                     <Image 
-                        className="h-32 w-32 bg-gray-400 rounded-xl" 
+                        className="h-32 w-32 rounded-xl" 
                         resizeMode='contain'
                         source={require('../../assets/Logo.png')}
                         // source={{ uri: urlFor(imgUrl).url()}}
@@ -82,7 +79,7 @@ const ProjectInfoCard = () => {
                     <Text className="pt-2">'Department Name'</Text>
                 </View>
             </View>
-            <View className="mt-4 mb-2 justify-around">
+            <View className="mt-4 mb-2 ml-2">
                 <FlatList
                     data={tabs}
                     renderItem={({item}) => (
@@ -109,13 +106,14 @@ const ProjectInfoCard = () => {
 }
 const styles = StyleSheet.create({
     btn: (name, activeTab) => ({
-        backgroundColor: name === activeTab ? COLORS.primary : "#F3F4F8",
+        backgroundColor: name === activeTab ? COLORS.primary : "#C9C9CC",
         ...SHADOWS.medium,
         shadowColor: COLORS.white,
     }),
     btnText: (name, activeTab) => ({
-        color: name === activeTab ? "#C3BFCC" : "#AAA9B8",
-    }),
+        color: name === activeTab ? "white" : "black",
+        paddingLeft: 20
+}),
 });
 
 

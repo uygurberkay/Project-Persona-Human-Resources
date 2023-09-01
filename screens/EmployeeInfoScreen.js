@@ -22,10 +22,12 @@ export default function EmployeeInfoScreen() {
     },[])
 
     return (
-        <SafeAreaView>
-            <StatusBar barStyle="dark-content"/>
-            <EmployeeInfoCard />
-            <Footer />
+        <SafeAreaView >
+            <>
+                <StatusBar barStyle="dark-content"/>
+                <EmployeeInfoCard />
+                <Footer />
+            </>
         </SafeAreaView>
     )
 }
