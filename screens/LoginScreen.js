@@ -5,12 +5,10 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import { TouchableOpacity, Image} from 'react-native'
 import { themeColors } from '../theme'
 import { useState } from 'react'
-import { FIREBASE_AUTH } from '../firebase'
 import { ActivityIndicator } from 'react-native'
 import * as Icon from "react-native-feather";
 import { useNavigation } from '@react-navigation/native'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
-const auth = FIREBASE_AUTH;
 
 const LoginScreen = () => {
     const navigation = useNavigation()
@@ -18,31 +16,31 @@ const LoginScreen = () => {
     const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)
 
-    // Sign In Functionality
-    const handleSignIn = async () => {
-        setLoading(true)
-        try {
-            const response = await signInWithEmailAndPassword(auth, email, password)
-            console.log(response)
-        } catch (error) {
-            console.log(error)
-        }finally{
-            setLoading(false)
-        }
-    }
+    // // Sign In Functionality
+    // const handleSignIn = async () => {
+    //     setLoading(true)
+    //     try {
+    //         const response = await signInWithEmailAndPassword(auth, email, password)
+    //         console.log(response)
+    //     } catch (error) {
+    //         console.log(error)
+    //     }finally{
+    //         setLoading(false)
+    //     }
+    // }
 
-    // Sign In Functionality
-    const handleSignUp = async () => {
-        setLoading(true)
-        try {
-            const response = await createUserWithEmailAndPassword(auth, email, password)
-            console.log(response)
-        } catch (error) {
-            console.log(error)
-        }finally{
-            setLoading(false)
-        }
-    }
+    // // Sign In Functionality
+    // const handleSignUp = async () => {
+    //     setLoading(true)
+    //     try {
+    //         const response = await createUserWithEmailAndPassword(auth, email, password)
+    //         console.log(response)
+    //     } catch (error) {
+    //         console.log(error)
+    //     }finally{
+    //         setLoading(false)
+    //     }
+    // }
 
     return (
         <SafeAreaView
@@ -94,7 +92,7 @@ const LoginScreen = () => {
             <TouchableOpacity
                 className="flex items-center border rounded-full "
                 style={{backgroundColor: themeColors.bgColor(1)}}
-                onPress={handleSignUp}
+                // onPress={handleSignUp}
             >
                 <Text 
                     className="h-8 text-lg"

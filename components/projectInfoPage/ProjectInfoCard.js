@@ -47,9 +47,9 @@ const ProjectInfoCard = ({data}) => {
 
             case "Takım Bilgisi":
                 return (
-                    <About 
-                        data={data} 
-                    />
+                        <About 
+                            data={data} 
+                        />
                 );
             default:
                 return null;
