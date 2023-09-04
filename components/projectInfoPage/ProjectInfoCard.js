@@ -11,13 +11,13 @@ import * as Icon from "react-native-feather";
 import { useNavigation } from '@react-navigation/native';
 import { COLORS, SHADOWS } from "../../constants/theme";
 
-const tabs = ["Aktif Projeler", "Takım Bilgisi"];
+const tabs = ["Proje Özeti", "Takım Bilgisi"];
 const isLoading = false
 
 const TabButton = ({name, activeTab, onHandleSearchType}) => {
     return (
         <TouchableOpacity
-            className="ml-6 px-4 py-6 rounded-3xl w-40"
+            className="ml-6 px-4 py-6 rounded-3xl w-40 pl-5"
             style={styles.btn(name, activeTab)}
             onPress={onHandleSearchType}
         >
@@ -38,7 +38,7 @@ const ProjectInfoCard = ({data}) => {
 
     const displayTabContent = () => {
         switch (activeTab) {
-            case "Aktif Projeler":
+            case "Proje Özeti":
                 return (
                     <ProjectInfo 
                         data={data}
@@ -74,12 +74,12 @@ const ProjectInfoCard = ({data}) => {
                         source={require('../../assets/Logo.png')}
                         // source={{ uri: urlFor(imgUrl).url()}}
                     />
-                    <Text className="pt-2">'Department Name'</Text>
-                    <Text className="pt-2">'Start Date'</Text>
-                    <Text className="pt-2">'Department Name'</Text>
+                    <Text className="pt-2">{data}</Text>
+                    <Text className="pt-2"></Text>
+                    <Text className="pt-2"></Text>
                 </View>
             </View>
-            <View className="mt-4 mb-2 ml-2">
+            <View className="mt-4 mb-2 ml-2 ">
                 <FlatList
                     data={tabs}
                     renderItem={({item}) => (

@@ -41,7 +41,6 @@ const LoginScreen = () => {
     //         setLoading(false)
     //     }
     // }
-
     return (
         <SafeAreaView
             className="flex flex-1 justify-center items-center space-y-2"
