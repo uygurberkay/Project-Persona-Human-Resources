@@ -42,7 +42,7 @@ const navigation = useNavigation()
                         <Icon.Search height={20} width={20} strokeWidth="2.5" stroke="white"  />
                     </TouchableOpacity>
                 <TouchableOpacity
-                    onPress={()=> navigation.navigate('Home')}
+                    onPress={() => navigation.goBack()}
                 >
                     <View style={{backgroundColor: themeColors.bgColor(1)}} className="p-3 rounded-full">
                         <Icon.ArrowLeftCircle height={20} width={20} strokeWidth="2.5" stroke="white" />
@@ -54,9 +54,16 @@ const navigation = useNavigation()
                 {/* companies */}
                 <Categories className="sticky" />
 
-                {/* Projects */}
-                {/* <Projects /> */}
-                
+                <View 
+                    className="flex px-4 py-3 flex-row justify-between items-center"
+                >
+                    <Text 
+                    className="text-lg font-semibold"
+                    style={{color: themeColors.bgColor(1)}}
+                    >
+                    Aktif Projeler
+                    </Text>
+                </View>
                 <Popularjobs />
                 
                 

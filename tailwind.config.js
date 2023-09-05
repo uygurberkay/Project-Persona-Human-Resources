@@ -7,7 +7,11 @@ module.exports = {
         'primary-bg': '#312651',
       },
       width: {
-        'box' : 4/7
+        'box' : 4/7,
+      },
+      height: {
+        'emp' : '12',
+        '128': '32rem',
       }
     },
   },

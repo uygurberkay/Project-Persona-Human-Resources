@@ -57,25 +57,26 @@ const navigation = useNavigation()
             {/* companies */}
             <Categories className="sticky" />
 
-            {/* Projects */}
-            {/* <Projects /> */}
-            
+        {/* Project ListBox */}
+            <View className="px-4 flex-row justify-between items-center">
+                <Text 
+                    className="text-lg font-semibold" 
+                    style={{color: themeColors.bgColor(1)}}
+                    >
+                    Aktif Projeler
+                </Text>
+                <TouchableOpacity
+                    onPress={() => { navigation.navigate('Projects')}}
+                >
+                    <Text className="text-sm font-bold text-gray-400">
+                    Hepsi
+                    </Text>
+                </TouchableOpacity>
+            </View>
+
             <Popularjobs />
-            {/* {
-                
-                [featured]
-                .map((item,index) => { 
-                    return (
-                        <FeaturedRow 
-                            key={index}
-                            title={item.title}
-                            restaurants={item.restaurants}
-                            description={item.description}
-                        />
-                    )
-                })
-            } */}
             
+        {/* Employee ListBox */}
             <ScrollView 
             className="h-1/2"
             showsVerticalScrollIndicator={false}

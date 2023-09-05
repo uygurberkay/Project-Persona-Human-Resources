@@ -28,40 +28,24 @@ const Popularjobs = () => {
 
     return (
         <View className="mt-3">
-    
-            <View className="px-4 flex-row justify-between items-center">
-                <Text 
-                    className="text-lg font-semibold" 
-                    style={{color: themeColors.bgColor(1)}}
-                    >
-                    Aktif Projeler
-                </Text>
-                <TouchableOpacity
-                    onPress={() => { navigation.navigate('Projects')}}
-                >
-                    <Text className="text-sm font-bold text-gray-400">
-                    Hepsi
-                    </Text>
-                </TouchableOpacity>
+            <View 
+                className="px-2 mt-2"
+            >
+                <FlatList 
+                    data={projects}
+                    renderItem={({item}) => (
+                        <PopularJobCard 
+                            item={item}
+                            selectedJob={selectedJob}
+                            handleCardPress={handleCardPress}
+                            id={item._id}
+                        />
+                    )}
+                keyExtractor={(projects) => projects?._id} 
+                contentContainerStyle={{ columnGap: 16}}
+                horizontal
+                />
             </View>
-        <View 
-            className="px-2 mt-2"
-        >
-            <FlatList 
-                data={projects}
-                renderItem={({item}) => (
-                    <PopularJobCard 
-                        item={item}
-                        selectedJob={selectedJob}
-                        handleCardPress={handleCardPress}
-                        id={item._id}
-                    />
-                )}
-            keyExtractor={(projects) => projects?._id} 
-            contentContainerStyle={{ columnGap: 16}}
-            horizontal
-            />
-        </View>
     </View>
     )
 } 

@@ -41,22 +41,22 @@ const navigation = useNavigation()
                     >
                         <Icon.Search height={20} width={20} strokeWidth="2.5" stroke="white"  />
                     </TouchableOpacity>
-                <TouchableOpacity
-                    onPress={()=> navigation.navigate('Login')}
+                    <TouchableOpacity
+                    onPress={() => navigation.goBack()}
                 >
                     <View style={{backgroundColor: themeColors.bgColor(1)}} className="p-3 rounded-full">
-                        <Icon.LogIn height={20} width={20} strokeWidth="2.5" stroke="white" />
+                        <Icon.ArrowLeftCircle height={20} width={20} strokeWidth="2.5" stroke="white" />
                     </View>
                 </TouchableOpacity>
             </View>
             {/* main */}
             
                 {/* companies */}
-                <Categories className="sticky" />
+                {/* <Categories className="sticky" /> */}
 
                 
                 <ScrollView 
-                className="h-4/5"
+                className="h-[736px]"
                 showsVerticalScrollIndicator={false}
                 contentContainerStyle={{
                     paddingBottom: 20
