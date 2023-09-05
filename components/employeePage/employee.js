@@ -33,6 +33,7 @@ import { useNavigation } from '@react-navigation/native'
               employees?.map((job) => (
                 <EmployeeCard
                   data={job}
+                  key={job._id}
                   // data={employees}
                   // job={job}
                   keyExtraction={(job) => job?._id}

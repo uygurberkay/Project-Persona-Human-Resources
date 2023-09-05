@@ -7,9 +7,11 @@ import {
 } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { COLORS, SHADOWS, SIZES } from "../../constants/theme";
+import { urlFor } from '../../sanity';
 
     const PopularJobCard = ({ item , selectedJob , handleCardPress}) => {
         const navigation = useNavigation()
+        console.log(item)
         return (
         <TouchableOpacity
             className="w-56 justify-between rounded-xl p-4"
@@ -21,21 +23,10 @@ import { COLORS, SHADOWS, SIZES } from "../../constants/theme";
                 className="w-12 h-12 justify-center items-center rounded-xl"
                 style={styles.logoContainer(selectedJob,item)}
             >
-            {/* <Image 
-                source={ {
-                    uri : checkImageURL(item.deptImage)
-                    ? item.deptImage
-                    :  require("../../assets/Logo.png"),
-                }}
-                resizeMode='contain'
-                className="w-2/3 h-2/3"
-            /> */}
             <Image 
-                source={
-                    require("../../assets/Logo.png")
-                }
-                resizeMode='contain'
-                className="w-2/3 h-2/3"
+                className="rounded-xl w-4/5 h-4/5 "
+                source={{ uri: urlFor(item.deptImage).url(),
+                }} 
             />
             </TouchableOpacity>
             <Text
@@ -46,7 +37,6 @@ import { COLORS, SHADOWS, SIZES } from "../../constants/theme";
             {item.deptName}
             </Text>
         </View>
-
             <View className="flex-row justify-between">
             <Text className="text-sm" style={styles.jobName(selectedJob,item)}>Başlangıç:</Text>
                 <Text className="text-sm" style={styles.jobName(selectedJob,item)}>{item.dueDate}</Text>
@@ -64,12 +54,9 @@ import { COLORS, SHADOWS, SIZES } from "../../constants/theme";
                     {item.title}
                 </Text>
                     <View className="flex-row justify-between pt-2">
-                        <Text className="text-sm " style={styles.jobName(selectedJob,item)}>Sorumlu:</Text>
+                        <Text className="text-sm " style={styles.jobName(selectedJob,item)}></Text>
                         <Text className="text-sm" style={styles.jobName(selectedJob,item)}>
-                        {
-                            item.projectLead
-                            
-                        }
+                        
                         </Text>
                     </View>
             </View>
@@ -95,4 +82,4 @@ const styles = StyleSheet.create({
     }),
 });
 
-    export default PopularJobCard
+export default PopularJobCard

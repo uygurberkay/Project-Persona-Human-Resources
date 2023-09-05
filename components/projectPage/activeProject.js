@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, FlatList, ActivityIndicator } from 'react
 import {themeColors} from '../../theme'
 import PopularJobCard from './activeProjectCard'
 // import useFetch from '../../../hook/useFetch.js'
-import { getActiveProject, getActiveProject2 } from '../../api'
+import { getActiveProject, getActiveProject2, getActiveProjectLead } from '../../api'
 import { useNavigation } from '@react-navigation/native'
 
 const Popularjobs = () => {
@@ -16,7 +16,6 @@ const Popularjobs = () => {
         setIsLoading(true)
         getActiveProject().then(data=>{
             setProjects(data);
-            // console.log(data)
             })
         setIsLoading(false)
     }, [])
@@ -55,10 +54,10 @@ const Popularjobs = () => {
                         item={item}
                         selectedJob={selectedJob}
                         handleCardPress={handleCardPress}
-                        // id={}
+                        id={item._id}
                     />
-            )}
-            keyExtractor={(item) => item?.job_id} 
+                )}
+            keyExtractor={(projects) => projects?._id} 
             contentContainerStyle={{ columnGap: 16}}
             horizontal
             />

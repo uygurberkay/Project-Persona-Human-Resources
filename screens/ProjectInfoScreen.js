@@ -12,7 +12,7 @@ export default function ProjectInfoScreen() {
     useEffect(() => {
         getActiveProject().then(data=>{
             setProjects(data);
-            console.log(data)
+            // console.log(data)
             })
     }, [])
 

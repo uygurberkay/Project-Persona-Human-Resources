@@ -15,6 +15,7 @@ const Categories = () => {
             setCategories(data);
             })
     }, [])
+    // console.log(categories[0].departmentImage)
 
     return (
         <View className="px-1 mt-4">

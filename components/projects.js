@@ -16,7 +16,7 @@ const Projects = () => {
     useEffect(() => {
         getActiveProject().then(data=>{
             setProjects(data);
-            console.log(data)
+            // console.log(data)
             })
     }, [])
 

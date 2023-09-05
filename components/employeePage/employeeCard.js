@@ -5,12 +5,12 @@ import Cake  from '../../assets/icons/cake.png';
 import CakeGreen from '../../assets/icons/cake-green.png'
 import birthDayControl from '../../utils/dailyDayController';
 import { useNavigation } from '@react-navigation/native';
+import { urlFor } from '../../sanity';
 
 const EmployeeCard = ({ data , handleNavigate }) => {
     const navigation = useNavigation()
     /* Return true any match birthday available */
     const birth = birthDayControl(data.birthday)
-    // console.log(data.image)
 return (
     <TouchableOpacity
     className="flex-1 justify-between items-center flex-row p-2 rounded-xl bg-white"
@@ -21,20 +21,12 @@ return (
         className="w-14 h-14 bg-white justify-center items-center "
     >
         <Image 
-        className="rounded-xl w-4/5 h-4/5"
-        source={
-            require('../../assets/Logo.png')
-        }
-        resizeMode='contain'
+            className="rounded-xl w-4/5 h-4/5 "
+            source={{ uri: urlFor(data.image).url(),
+            
+        }} 
         />
     </TouchableOpacity>
-    {/* {
-        data?.map((item)=> {
-            (item.image && (
-                <Image source={item.image} />
-            ))
-        })
-    } */}
     <View 
         className="flex-1 pl-2 my-2"
     >
