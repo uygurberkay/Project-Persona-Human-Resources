@@ -1,7 +1,5 @@
 import { View, Text, TouchableOpacity, ScrollView } from 'react-native'
 import React from 'react'
-import { themeColors } from '../theme'
-import RestaurantCard from './restaurantCard'
 import ProjectCard from './projectCard'
 import { useNavigation } from '@react-navigation/native'
 
